@@ -16,11 +16,20 @@ async function main() {
         const { user, pass } = argv;
         await db.creteUser(user, pass);
         console.log(`${user} created`);
-      } catch (error) {
+      } catch (err) {
         throw new Error("Cannot create user");
       }
       break;
     case "users:list":
+      try {
+        const results = await db.listUsers();
+        results.users.forEach((u) => {
+          console.log(`- ${u.user}`);
+        });
+        console.log(`Total: ${results.count}`);
+      } catch (err) {
+        throw new Error("Cannot list user");
+      }
       break;
     case "users:create":
       break;
