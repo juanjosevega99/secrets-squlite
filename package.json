@@ -1,0 +1,15 @@
+{
+  "name": "secrets",
+  "version": "1.0.0",
+  "description": "CLI password manager for Node.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Juan Jose Vega <juanvega.tech@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
+}
