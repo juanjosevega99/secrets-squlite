@@ -31,9 +31,34 @@ async function main() {
         throw new Error("Cannot list user");
       }
       break;
-    case "users:create":
+    case "secrets:create":
+      try {
+        const { user, name, value } = argv;
+        await db.createSecret(user, name, value);
+        console.log(`secret: ${name} created`);
+      } catch (err) {
+        throw new Error("Cannot create secret");
+      }
       break;
-    case "users:list":
+    case "secrets:list":
+      try {
+        const { user } = argv;
+        const secrets = await db.listSecrets(user);
+        secrets.forEach((s) => {
+          console.log(`- ${s.name}`);
+        });
+      } catch (err) {
+        throw new Error("Cannot list secrets");
+      }
+      break;
+    case "secrets:get":
+      try {
+        const { user, name } = argv;
+        const secret = await db.getSecret(user, name);
+        console.log(`- ${secret.name} = ${secret.value}`);
+      } catch (err) {
+        throw new Error("Cannot get secret");
+      }
       break;
     default:
       console.error(`command not found: ${command}`);
