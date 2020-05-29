@@ -12,6 +12,13 @@ async function main() {
 
   switch (command) {
     case "users:create":
+      try {
+        const { user, pass } = argv;
+        await db.creteUser(user, pass);
+        console.log(`${user} created`);
+      } catch (error) {
+        throw new Error("Cannot create user");
+      }
       break;
     case "users:list":
       break;
