@@ -4,6 +4,7 @@
   "description": "CLI password manager for Node.js",
   "bin": "index.js",
   "scripts": {
+    "lint": "standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "minimist": "^1.2.5"
+  },
+  "devDependencies": {
+    "standard": "^14.3.4"
   }
 }
