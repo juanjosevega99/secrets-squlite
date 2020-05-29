@@ -11,7 +11,8 @@
   "author": "Juan Jose Vega <juanvega.tech@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "standard": "^14.3.4"
