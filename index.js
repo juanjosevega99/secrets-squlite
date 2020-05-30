@@ -70,6 +70,15 @@ async function main() {
         throw new Error("Cannot update secret");
       }
       break;
+    case "secrets:delete":
+      try {
+        const { user, name } = argv;
+        await db.deleteSecret(user, name);
+        console.log(`secret ${name} deleted`);
+      } catch (err) {
+        throw new Error("Cannot delete secret");
+      }
+      break;
     default:
       console.error(`command not found: ${command}`);
   }
