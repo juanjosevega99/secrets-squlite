@@ -14,7 +14,7 @@ async function main() {
     case "users:create":
       try {
         const { user, pass } = argv;
-        await db.creteUser(user, pass);
+        await db.createUser(user, pass);
         console.log(`${user} created`);
       } catch (err) {
         throw new Error("Cannot create user");
