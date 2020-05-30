@@ -55,6 +55,7 @@ async function main() {
       try {
         const { user, name } = argv;
         const secret = await db.getSecret(user, name);
+        if (!secret) return console.log(`secret ${name} not found`);
         console.log(`- ${secret.name} = ${secret.value}`);
       } catch (err) {
         throw new Error("Cannot get secret");
