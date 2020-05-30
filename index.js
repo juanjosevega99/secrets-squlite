@@ -61,6 +61,15 @@ async function main() {
         throw new Error("Cannot get secret");
       }
       break;
+    case "secrets:update":
+      try {
+        const { user, name, value } = argv;
+        await db.updateSecret(user, name, value);
+        console.log(`secret ${name} updated`);
+      } catch (err) {
+        throw new Error("Cannot update secret");
+      }
+      break;
     default:
       console.error(`command not found: ${command}`);
   }
